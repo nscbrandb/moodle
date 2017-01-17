@@ -2316,7 +2316,8 @@ function move_courses($courseids, $categoryid) {
         $event->set_legacy_logdata(array($course->id, 'course', 'move', 'edit.php?id=' . $course->id, $course->id));
         $event->trigger();
     }
-    fix_course_sortorder();
+    //STP-Hack | fix_course_sortorder is triggered by local/adminstp/check_course.php atfer batch-creation of multiple courses
+    //fix_course_sortorder();
     cache_helper::purge_by_event('changesincourse');
 
     return true;
