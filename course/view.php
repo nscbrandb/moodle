@@ -260,6 +260,11 @@
     // Course wrapper start.
     echo html_writer::start_tag('div', array('class'=>'course-content'));
 
+    // STP AddOn
+    echo html_writer::start_tag('h2', array('class'=>'stpheadingblock'));
+    echo $course->summary;
+    echo html_writer::end_tag('h2');
+
     // make sure that section 0 exists (this function will create one if it is missing)
     course_create_sections_if_missing($course, 0);
 
