@@ -3089,6 +3089,13 @@ function require_login($courseorid = null, $autologinguest = true, $cm = null, $
                 }
             }
 
+            // STP-Hack
+            if (user_has_role_assignment($USER->id, 3, $coursecontext->id)
+                || user_has_role_assignment($USER->id, 4, $coursecontext->id)
+                || user_has_role_assignment($USER->id, 5, $coursecontext->id)
+                || user_has_role_assignment($USER->id, 14, $coursecontext->id)
+            ) $access = true;
+
             if (!$access) {
                 // Cache not ok.
                 $until = enrol_get_enrolment_end($coursecontext->instanceid, $USER->id);
